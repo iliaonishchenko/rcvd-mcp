@@ -11,7 +11,7 @@ export interface McpToolResponse {
 }
 
 function isErrorBody(body: SendSuccessBody | SendErrorBody): body is SendErrorBody {
-  return "error" in body && typeof (body as SendErrorBody).error === "string";
+  return "error" in body && typeof body.error === "string";
 }
 
 export function resultToMcpResponse(result: SendResult): McpToolResponse {
