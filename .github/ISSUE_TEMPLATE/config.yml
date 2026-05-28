@@ -1,0 +1,8 @@
+blank_issues_enabled: true
+contact_links:
+  - name: Security vulnerability
+    url: https://github.com/iliaonishchenko/rcvd-mcp/security/advisories/new
+    about: Please report security issues privately, not as public issues. See SECURITY.md.
+  - name: rcvd API / account questions
+    url: https://rcvd.cc
+    about: Questions about the rcvd service, billing, or channels (not this MCP client).
