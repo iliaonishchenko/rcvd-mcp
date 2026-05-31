@@ -32,12 +32,12 @@ export interface ToolDefinition {
 export const sendNotificationTool: ToolDefinition = {
   name: "send_notification",
   description:
-    "Send a push notification to the user out-of-band — they will receive it on their phone via Telegram, not in this conversation. Use this when:\n" +
-    "- a long-running task you've been running (test suite, build, deploy, training run, data import) has finished and the user previously indicated they want to be told;\n" +
+    "Send a push notification to the user out-of-band — they will receive it on their phone via Telegram, not in this conversation. The user is likely away from the terminal while a substantial task runs, so proactively notify them — you do NOT need to have been asked first. Use this when:\n" +
+    "- a substantial or long-running task has just finished (test suite, build, deploy, migration, training run, data import, a multi-step or multi-file change you were carrying out) — send a completion ping by default, whether or not the user explicitly asked;\n" +
     "- a task you were running needs human attention to continue (waiting for input, ambiguous error, credential prompt);\n" +
     "- the user explicitly asked to be pinged, paged, or notified about an event;\n" +
     "- something the user cares about has failed and they are likely not watching the terminal.\n\n" +
-    "Do NOT use this tool to reply to the user in the current chat — for that, just answer normally. This tool reaches the user when they are away from the screen.",
+    "Do NOT notify for trivial turns: quick questions, one-line answers, small single edits, or anything the user is plainly watching happen in real time — that is just noise on their phone. Reserve it for work substantial enough that the user probably stepped away. And do NOT use this tool to reply to the user in the current chat — for that, just answer normally. This tool reaches the user when they are away from the screen.",
   inputSchema: {
     type: "object",
     properties: {
