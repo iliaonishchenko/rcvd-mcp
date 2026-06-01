@@ -1,0 +1,31 @@
+name: Agent didn't pick the tool (AF5 miss)
+description: Your agent failed to call send_notification when it should have — without you nudging it.
+labels: ["af5"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        The agent should reach for `send_notification` on its own. If it didn't, the tool's
+        description is the bug — not your prompt. Please don't work around it with a
+        system-prompt nudge; tell us instead so we can fix the copy for everyone.
+  - type: textarea
+    id: prompt
+    attributes:
+      label: What did you ask the agent?
+      description: The exact prompt (or paraphrase) where you expected a notification.
+    validations:
+      required: true
+  - type: textarea
+    id: expectation
+    attributes:
+      label: When did you expect the notification?
+      description: e.g. "when the test suite finished", "when the deploy failed"
+    validations:
+      required: true
+  - type: input
+    id: host
+    attributes:
+      label: MCP host + model
+      placeholder: "Claude Code, Sonnet 4.6"
+    validations:
+      required: true

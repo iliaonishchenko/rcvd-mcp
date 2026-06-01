@@ -1,0 +1,70 @@
+{
+  "name": "@rcvd/mcp",
+  "version": "0.0.1",
+  "description": "Official MCP server for rcvd. Send push notifications to Telegram from your AI agent.",
+  "type": "module",
+  "license": "MIT",
+  "author": "rcvd",
+  "homepage": "https://rcvd.cc",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/iliaonishchenko/rcvd-mcp.git"
+  },
+  "bugs": {
+    "url": "https://github.com/iliaonishchenko/rcvd-mcp/issues"
+  },
+  "keywords": [
+    "mcp",
+    "model-context-protocol",
+    "notifications",
+    "telegram",
+    "claude",
+    "agent",
+    "ai-tools"
+  ],
+  "engines": {
+    "node": ">=20"
+  },
+  "main": "./dist/index.js",
+  "exports": {
+    ".": {
+      "import": "./dist/index.js",
+      "types": "./dist/index.d.ts"
+    }
+  },
+  "bin": {
+    "rcvd-mcp": "./dist/index.js"
+  },
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "scripts": {
+    "build": "tsc -p tsconfig.build.json",
+    "dev": "tsc -p tsconfig.build.json --watch",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "lint": "eslint .",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "prepublishOnly": "npm run lint && npm run test && npm run build"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.29.0",
+    "zod": "^4.4.3"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.0.0",
+    "@types/node": "^22.0.0",
+    "@typescript-eslint/eslint-plugin": "^8.0.0",
+    "@typescript-eslint/parser": "^8.0.0",
+    "eslint": "^9.0.0",
+    "msw": "^2.0.0",
+    "typescript": "^5.6.0",
+    "typescript-eslint": "^8.0.0",
+    "vitest": "^4.0.0"
+  }
+}

@@ -1,0 +1,13 @@
+# Only dist/, README.md, and LICENSE ship (see "files" in package.json).
+# This file is belt-and-suspenders against accidental inclusion.
+src/
+tests/
+.github/
+tsconfig*.json
+vitest.config.ts
+eslint.config.js
+package-lock.json
+coverage/
+.env*
+CONTRIBUTING.md
+SECURITY.md

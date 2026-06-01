@@ -1,0 +1,46 @@
+name: Bug report
+description: Something doesn't work as documented.
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for filing a bug. Please never paste your `RCVD_API_KEY` — redact it as `rcvd_live_...`.
+  - type: textarea
+    id: what-happened
+    attributes:
+      label: What happened?
+      description: What did you expect, and what did you get instead?
+    validations:
+      required: true
+  - type: textarea
+    id: repro
+    attributes:
+      label: Steps to reproduce
+      placeholder: |
+        1. Configure the server with ...
+        2. Ask the agent to ...
+        3. ...
+    validations:
+      required: true
+  - type: input
+    id: host
+    attributes:
+      label: MCP host
+      description: e.g. Claude Code, Claude Desktop, Cursor, Continue
+    validations:
+      required: true
+  - type: input
+    id: versions
+    attributes:
+      label: Versions
+      description: "@rcvd/mcp version + `node -v`"
+      placeholder: "@rcvd/mcp 0.1.0, node v20.x"
+    validations:
+      required: true
+  - type: textarea
+    id: logs
+    attributes:
+      label: Relevant logs
+      description: stderr output from the server, with secrets redacted.
+      render: shell
