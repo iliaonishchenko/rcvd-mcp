@@ -44,7 +44,7 @@ export const sendNotificationTool: ToolDefinition = {
       text: {
         type: "string",
         description:
-          "The notification body. Plain text, up to 4096 characters. Write what a human glancing at their phone needs to know: outcome first, details second. Examples: 'Build finished: 127 passed, 3 failed.' / 'Deploy succeeded.' / 'Tests are waiting on you — credential prompt in pytest.'",
+          "The notification body — a short description of what was done or what is needed. Plain text, up to 4096 characters. Lead with the outcome, then the details a human glancing at their phone needs. If you are reporting several distinct things, write them as short bullet lines starting with '- ' (they render as • bullets) — keep it to a few. Do not repeat the title here. Examples: 'Build finished: 127 passed, 3 failed.' / a multi-part body like 'Refactored auth and shipped:\\n- migrated 12 call sites\\n- added retry on 429\\n- all tests green'.",
         minLength: 1,
         maxLength: 4096,
       },
@@ -62,7 +62,7 @@ export const sendNotificationTool: ToolDefinition = {
       title: {
         type: "string",
         description:
-          "Optional short title (up to 100 characters), shown above the body. Use when the body alone is ambiguous — e.g. title 'CI: my-repo', body '127 passed, 3 failed.' Omit when the body is self-contained.",
+          "A short subject line (up to 100 characters), shown in bold above the body. Use it as the TOPIC — what this notification is about — so the user knows which project, task, or conversation it refers to at a glance: e.g. 'rcvd-mcp: notification formatting', 'CI: my-repo', 'Prod deploy'. Set it whenever you can, especially for completion pings; the body then carries the detail. Keep it a label, not a sentence.",
         minLength: 1,
         maxLength: 100,
       },
